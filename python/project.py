@@ -77,10 +77,10 @@ elif(question == 'F' or question == 'f'):
     print('\n' + '-'*59 + '\n')
     target = str(input('Target: '))
     print('\n' + '-'*59 + '\n')
-    subdo = str(input('Which type of world list do you want to use? (Small / Medium / Large)[S/M/L]: '))
+    subdo = input('Which type of world list do you want to use? (Small / Medium / Large)[S/M/L]: ')
     print('\n' + '-'*59 + '\n')
     if(subdo == 'S' or subdo == 's'):
-        type_inp = str(input('[A/AAAA/MX/TXT/NS]: '))
+        type_inp = input('[A/AAAA/MX/TXT/NS]: ')
         print('\n' + '-'*59 + '\n')
         try:
             arq = open('smal.txt')
