@@ -98,19 +98,6 @@ elif(question == 'F' or question == 'f'):
                 print('\n' + '-'*59 + '\n')
         print('SCANNING...')
         print('\n' + '-'*59 + '\n')
-        for port in port_pattern:
-            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.settimeout(0.1)
-            code = client.connect_ex((ip_ps, port))
-            code_transfer = str(code)
-            if(code_transfer == '0'):
-                print('Port: {} <----> OPEN'.format(str(port)))
-                print('\n' + '-'*24 + '\n')
-            else:
-                print('Port: {} <----> CLOSE'.format(str(port)))
-                print('\n' + '-'*24 + '\n')
-        print('SCANNING COMPLETED')
-        print('\n' + '-'*59 + '\n')
     elif(subdo == 'M' or subdo == 'm'):
         print('\033[33m' + 'Unfortunately there is still no other world list, but I am working on it. I apologize for the inconvenience.' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
@@ -132,20 +119,6 @@ elif(question == 'F' or question == 'f'):
 #            for result in results:
 #                print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
 #                print('\n' + '-'*59 + '\n')
-#        for port in port_pattern:
-#            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#            client.settimeout(0.1)
-#            code = client.connect_ex((ip_ps, port))
-#            code_transfer = str(code)
-#            if(code_transfer == '0'):
-#                print('Port: {} <----> OPEN'.format(str(port)))
-#                print('\n' + '-'*24 + '\n')
-#            else:
-#                print('Port: {} <----> CLOSE'.format(str(port)))
-#        print('SCANNING COMPLETED')
-#        print('\n' + '-'*59 + '\n')
-#        print('PROGRAMMING COMPLETED')
-#        print('\n' + '-'*59 + '\n')
     elif(subdo == 'B' or subdo == 'b'):
         print('\033[33m' + 'Unfortunately there is still no other world list, but I am working on it. I apologize for the inconvenience.' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
@@ -167,25 +140,35 @@ elif(question == 'F' or question == 'f'):
 #            for result in results:
 #                print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
 #                print('\n' + '-'*59 + '\n')
-#        for port in port_pattern:
-#            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#            client.settimeout(0.1)
-#            code = client.connect_ex((ip_ps, port))
-#            code_transfer = str(code)
-#            if(code_transfer == '0'):
-#                print('Port: {} <----> OPEN'.format(str(port)))
-#                print('\n' + '-'*24 + '\n')
-#            else:
-#                print('Port: {} <----> CLOSE'.format(str(port)))
-#        print('SCANNING COMPLETED')
-#        print('\n' + '-'*59 + '\n')
-#        print('PROGRAMMING COMPLETED')
-#        print('\n' + '-'*59 + '\n')
     else:
         print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
         time.sleep(10)
         sys.exit(1)
+    
+    try:
+        print('Scanning...')
+        print('\n' + '-'*59 + '\n')
+        for port in port_pattern:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.settimeout(0.05)
+            code = client.connect_ex((target, port))
+            code_transfer = str(code)
+            if(code_transfer == '0'):
+                print('Port: {} <----> OPEN'.format(str(port)))
+                print('\n' + '-'*24 + '\n')
+            else:
+                print('Port: {} <----> CLOSE'.format(str(port)))
+                print('\n' + '-'*24 + '\n')
+        print('Scanning completed')
+        print('\n' + '-'*59 + '\n')
+    except:
+        print('\033m[31m' + 'Scanning failed' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+    pass
+    print('PROGRAMMING COMPLETED')
+    print('\n' + '-'*59 + '\n')
+
 else:
         print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
