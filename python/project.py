@@ -12,6 +12,8 @@ import time
 port_pattern = [21, 22, 23, 25, 53, 80, 110, 135, 136, 137, 138, 139, 143, 631, 3306, 3389]
 all_ports = range(65535)
 
+a = 0
+
 #------------#
 
 #------ PRESENTATION ------#
@@ -37,6 +39,7 @@ if(question == 'P' or question == 'p'):
     ip_ps = str(input(' Target: '))
     print('\n' + '-'*59 + '\n')
     port_sc = str(input(' Port (Pattern/All)[P/A]: '))
+    print('\n' + '-'*59 + '\n')
     if(port_sc == 'P' or port_sc == 'p'):
         print('SCANNING...')
         print('\n' + '-'*59 + '\n')
@@ -50,6 +53,7 @@ if(question == 'P' or question == 'p'):
                 print('\n' + '-'*24 + '\n')
             else:
                 print('Port: {} <----> CLOSE'.format(str(port)))
+                print('\n' + '-'*24 + '\n')
         print('SCANNING COMPLETED')
         print('\n' + '-'*59 + '\n')
     elif(port_sc == 'A' or port_sc == 'a'):
@@ -57,14 +61,14 @@ if(question == 'P' or question == 'p'):
         print('\n' + '-'*59 + '\n')
         for port in all_ports:
             client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.settimeout(0.1)
+            client.settimeout(0.05)
             code = client.connect_ex((ip_ps, port))
             code_transfer = str(code)
             if(code_transfer == '0'):
                 print('Port: {} <----> OPEN'.format(port))
                 print('\n' + '-'*24 + '\n')
             else:
-                a += a
+                a = a + 1
     else:
         print('\033[31m' + 'SCANNING FAILED' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
@@ -79,7 +83,7 @@ elif(question == 'F' or question == 'f'):
         type_inp = str(input('[A/AAAA/MX/TXT/NS]: '))
         print('\n' + '-'*59 + '\n')
         try:
-            arq = open('../word_list/smal.txt')
+            arq = open('smal.txt')
             line = arq.read().splitlines()
         except:
             print('\033[33m' + 'For some reason, the required file could not be found. Therefore, the program will end' + '\033[0;0m')
@@ -87,15 +91,105 @@ elif(question == 'F' or question == 'f'):
             time.sleep(10)
             sys.exit(1)
         for sub in line:
-            try:
-                host = ('{}.{}'.format(sub, target))
-                results = dns.renderer.resolve(host, type_inp)
-                for result in results:
-                    print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
-                    print('\n' + '-'*59 + '\n')
-            except:
-                a += a
-            pass
+            host = ('{}.{}'.format(sub, target))
+            results = dns.resolver.resolve(host, type_inp)
+            for result in results:
+                print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
+                print('\n' + '-'*59 + '\n')
+        print('SCANNING...')
+        print('\n' + '-'*59 + '\n')
+        for port in port_pattern:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.settimeout(0.1)
+            code = client.connect_ex((ip_ps, port))
+            code_transfer = str(code)
+            if(code_transfer == '0'):
+                print('Port: {} <----> OPEN'.format(str(port)))
+                print('\n' + '-'*24 + '\n')
+            else:
+                print('Port: {} <----> CLOSE'.format(str(port)))
+                print('\n' + '-'*24 + '\n')
+        print('SCANNING COMPLETED')
+        print('\n' + '-'*59 + '\n')
     elif(subdo == 'M' or subdo == 'm'):
+        print('\033[33m' + 'Unfortunately there is still no other world list, but I am working on it. I apologize for the inconvenience.' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(10)
+        sys.exit(1)
+#        type_inp = input('[A/AAAA/MX/TXT/NS]: ')
+#        print('\n' + '-'*59 + '\n')
+#        try:
+#            arq = open('../word_lists/medium.txt')
+#            line = arq.read().splitlines()
+#        except:
+#            print('\033[33m' + 'For some reason, the required file could not be found. Therefore, the program will end' + '\033[0;0m')
+#            print('\n' + '-'*59 + '\n')
+#            time.sleep(10)
+#            sys.exit(1)
+#        for sub in line:
+#            host = ('{}.{}'.format(sub, target))
+#            results = dns.resolver.resolve(host, type_inp)
+#            for result in results:
+#                print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
+#                print('\n' + '-'*59 + '\n')
+#        for port in port_pattern:
+#            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#            client.settimeout(0.1)
+#            code = client.connect_ex((ip_ps, port))
+#            code_transfer = str(code)
+#            if(code_transfer == '0'):
+#                print('Port: {} <----> OPEN'.format(str(port)))
+#                print('\n' + '-'*24 + '\n')
+#            else:
+#                print('Port: {} <----> CLOSE'.format(str(port)))
+#        print('SCANNING COMPLETED')
+#        print('\n' + '-'*59 + '\n')
+#        print('PROGRAMMING COMPLETED')
+#        print('\n' + '-'*59 + '\n')
+    elif(subdo == 'B' or subdo == 'b'):
+        print('\033[33m' + 'Unfortunately there is still no other world list, but I am working on it. I apologize for the inconvenience.' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(10)
+        sys.exit(1)
+#        type_inp = input('[A/AAAA/MX/TXT/NS]: ')
+#        print('\n' + '-'*59 + '\n')
+#        try:
+#            arq = open('../word_lists/big.txt')
+#            line = arq.read().splitlines()
+#        except:
+#            print('\033[33m' + 'For some reason, the required file could not be found. Therefore, the program will end' + '\033[0;#0m')
+#            print('\n' + '-'*59 + '\n')
+#            time.sleep(10)
+#            sys.exit(1)
+#        for sub in line:
+#            host = ('{}.{}'.format(sub, target))
+#            results = dns.resolver.resolve(host, type_inp)
+#            for result in results:
+#                print('\033[32m' + 'Target: ' + '\033[0;0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_inp))
+#                print('\n' + '-'*59 + '\n')
+#        for port in port_pattern:
+#            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#            client.settimeout(0.1)
+#            code = client.connect_ex((ip_ps, port))
+#            code_transfer = str(code)
+#            if(code_transfer == '0'):
+#                print('Port: {} <----> OPEN'.format(str(port)))
+#                print('\n' + '-'*24 + '\n')
+#            else:
+#                print('Port: {} <----> CLOSE'.format(str(port)))
+#        print('SCANNING COMPLETED')
+#        print('\n' + '-'*59 + '\n')
+#        print('PROGRAMMING COMPLETED')
+#        print('\n' + '-'*59 + '\n')
+    else:
+        print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(10)
+        sys.exit(1)
+else:
+        print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(10)
+        sys.exit(1)
 
 #------------#
