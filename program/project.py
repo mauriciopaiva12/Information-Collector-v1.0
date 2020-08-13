@@ -73,9 +73,29 @@ if(question == 'P' or question == 'p'):
         print('\033[31m' + 'SCANNING FAILED' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
 elif(question == 'F' or question == 'f'):
-    print('\033[31m' + 'Unfortunately this part has not yet been completed, but I am already working on it. More updates are coming soon.' + '\033[0;0m')
+    print('---'*4 + 'COMPLETE PROGRAM' + '---'*4)
     print('\n' + '-'*59 + '\n')
-    sys.exit(1)
+    target = str(input('Target: '))
+    print('\n' + '-'*59 + '\n')
+    subdo = str(input('(Small/Medium/Big)[S/M/G]: '))
+    print('\n' + '-'*59 + '\n')
+    if(subdo == 'S' or subdo == 's'):
+        type_in = str(input('[A/AAAA/MX/NS/TXT]: '))
+        print('\n' + '-'*59 + '\n')
+        try:
+            arq = open('/lists/small.txt')
+            subs = arq.read().splitlines()
+        except:
+            print('\033[31m' + 'For some reason, a necessary file was not found, so the program will be terminated!' + '\033[0;0m')
+            print('\n' + '-'*59 + '\n')
+            time.sleep(4)
+            sys.exit(1)
+        for sub in subs:
+            host = ('{}.{}'.format(sub, target))
+            results = dns.resolver.resolve(host, type_in)
+            for result in results:
+                print('\033[31m' + 'TARGET: ' + '\033[0m' + '{} <====> IP: {} <====> {}'.format(host, result, type_in))
+                print('\n' + '-'*24 + '\n')
 
 else:
         print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
