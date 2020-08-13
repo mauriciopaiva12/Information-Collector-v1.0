@@ -12,8 +12,6 @@ For now it contains only PortScan, but very soon it will receive an update that 
 
 ## What is in the project and what will be implemented?
 
-***
-
 <p>
 In the list below, it will be possible to view everything that currently exists in the project and everything that I currently intend to implement.<br />
 Within the next few days, I intend to implement a third of the brute force DNS, containing a small list of subdomains.<br />
