@@ -4,7 +4,6 @@ import socket
 import sys
 import dns.resolver
 import time
-#from pathlib import Path
 
 #------------#
 
@@ -82,9 +81,8 @@ elif(question == 'F' or question == 'f'):
     print('\n' + '-'*59 + '\n')
     if(subdo == 'S' or subdo == 's'):
         type_in = input('[A/AAAA/MX/NS/TXT]: ')
-        print('\n' + '-'*59 + '\n')
         try:
-            arq = open('/program/lists/small.txt')
+            arq = open('lists/small.txt')
             lines = arq.read().splitlines()
         except:
             print('\033[31m' + 'For some reason, a necessary file was not found, so the program will be terminated!' + '\033[0;0m')
