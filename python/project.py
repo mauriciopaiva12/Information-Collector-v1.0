@@ -12,8 +12,6 @@ import time
 port_pattern = [21, 22, 23, 25, 53, 80, 110, 135, 136, 137, 138, 139, 143, 631, 3306, 3389]
 all_ports = range(65535)
 
-a = 1
-
 #------------#
 
 #------ PRESENTATION ------#
@@ -69,8 +67,6 @@ if(question == 'P' or question == 'p'):
             if(code_transfer == '0'):
                 print('Port: {} <----> '.format(port) + '\033[32m' + 'OPEN' + '\033[0;0m')
                 print('\n' + '-'*24 + '\n')
-            else:
-                a += a
         print('SCANNING COMPLETED')
         print('\n' + '-'*59 + '\n')
     else:
