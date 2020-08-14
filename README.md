@@ -1,12 +1,26 @@
-# Information Collector v1.0
+# Information Collector v1.1
 
 <p>
  
 __*Project dedicated to collecting information in the first stages of a Pentest.<br />
-The project is not yet finished, as I am evolving it as I have time, so it will receive several updates yet.<br />
-For now it contains only PortScan, but very soon it will receive an update that will add a brute force DNS in the complete session together with a PortScan.*__
+The project is not yet finished, as I am evolving it as I have time, so it will receive several updates yet.*__
 
 </p>
+
+---
+
+## Required libraries and installation
+
+<p>
+Some libraries are needed, such as: socket, sys, dns.resolver, time.<br />
+To install them, just copy and paste the following codes into the terminal, remembering that each version of the pip corresponds to a version of python.
+<p>
+
+---
+
+### Installation
+
+
 
 ---
 
@@ -14,7 +28,7 @@ For now it contains only PortScan, but very soon it will receive an update that 
 
 <p>
 In the list below, it will be possible to view everything that currently exists in the project and everything that I currently intend to implement.<br />
-Within the next few days, I intend to implement a third of the brute force DNS, containing a small list of subdomains.<br />
+In the coming days, I intend to implement the second third of the brute force DNS, containing in this next update a 'medium' size word-list.<br />
 </p>
 
 ---
@@ -22,10 +36,36 @@ Within the next few days, I intend to implement a third of the brute force DNS, 
 ### What exists and what will come:
 
  - [x] PortScan.<br />
- - [ ] DNS Brute Force 1<br />
+ - [x] DNS Brute Force 1<br />
  - [ ] DNS Brute Force 2<br />
  - [ ] DNS Brute Force 3<br />
  - [ ] Domain folder discovery 1<br />
  - [ ] Domain folder discovery 2<br />
  - [ ] Domain folder discovery 3<br />
  - [ ] Can save the output<br />
+
+## PortScan Category and Full Category
+
+<p>
+*Next, I'll talk a little bit about the categories, both the portscan category and the full category, I'll talk a little bit about how it works and about planning.*
+<p>
+
+---
+
+### PortScan
+
+<p>
+Within the PortScan category it is possible to do two types of scans, one with the main ports, and the other complete.<br /><br />
+The scan with the main doors presents both the open and closed doors of the desired target, but both are differentiated by color.<br />
+In the full scan, it scans all the target's doors, but with a differential from the other, it presents only the open doors.
+<p>
+
+---
+
+### Full Category
+
+<p>
+There are currently two functions in the full category: DNS Brute Force and PortScan. <br /> <br />
+The DNS Brute Force contains a small word-list, it contains 338 words, that is, it contains 338 attempts at subdomains, presenting only the existing subdomains. <br />
+PortScan, on the other hand, scans the main doors, presenting both open and closed doors and differentiating them by color.
+<p>

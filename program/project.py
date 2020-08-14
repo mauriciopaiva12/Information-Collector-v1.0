@@ -16,7 +16,7 @@ all_ports = range(65535)
 
 #------ PRESENTATION ------#
 
-print('\n' + '-'*59 + '\n' + '---'*4 + 'Information Collector' + '---'*4 + '\n' + '-'*24 + 'V.1.0' + '-'*24 + '\n')
+print('\n' + '-'*53 + '\n' + '--'*8 + 'Information Collector' + '--'*8 + '\n' + '-'*24 + 'V.1.1' + '-'*24 + '\n')
 print(' - For more information about the application, read the attachment "README.md" ')
 print('\n' + '-'*59 + '\n')
 
@@ -73,6 +73,8 @@ if(question == 'P' or question == 'p'):
         print('\033[31m' + 'SCANNING FAILED' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
 elif(question == 'F' or question == 'f'):
+    print('---'*4 + 'FULL' + '---'*4)
+    print('\n' + '-'*59 + '\n')
     target = str(input('Target: '))
     print('\n' + '-'*59 + '\n')
     subdo = str(input('(Small/Medium/Big)[S/M/B]: '))
@@ -81,8 +83,10 @@ elif(question == 'F' or question == 'f'):
         type_in = input('[A/AAAA/MX/NS/TXT]: ')
         print('\n' + '-'*59 + '\n')
         try:
-            arq = open('lists/w_small.txt')
+            arq = open('lists/small.txt')
             subs = arq.read().splitlines()
+            print('---'*4 + 'DNS BRUTE FORCE' + '---'*4)
+            print('\n' + '-'*59 + '\n')
         except:
             print('\033[31m' + 'For some reason a necessary file was not found! So the program will end!')
             print('\n' + '-'*59 + '\n')
@@ -93,10 +97,46 @@ elif(question == 'F' or question == 'f'):
                 host = ('{}.{}'.format(sub, target))
                 results = dns.resolver.resolve(host, type_in)
                 for result in results:
-                    print('\033[31m' +'TARGET: ' '\033[0;0m' + '{} <----> IP: {} <----> {}'.format(host, result, type_in))
+                    print('\033[32m' +'TARGET: ' '\033[0;0m' + '{} <----> IP: {} <----> {}'.format(host, result, type_in))
                     print('\n' + '-'*24 + '\n')
             except:
                 a = 1
+    elif(subdo == 'M' or subdo == 'm'):
+        print('\033[33m' + 'Unfortunately this part of the program has not yet been completed, but it will come in future updates.' + '\033[0;0m')
+        time.sleep(4)
+        sys.exit(1)
+    elif(subdo == 'B' or subdo == 'b'):
+        print('\033[33m' + 'Unfortunately this part of the program has not yet been completed, but it will come in future updates.' + '\033[0;0m')
+        time.sleep(4)
+        sys.exit(1)
+    else:
+        print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(4)
+        sys.exit(1)
+    
+    try:
+        print('---'*4 + 'PORTSCAN' + '---'*4)
+        print('\n' + '-'*59 + '\n')
+        print('SCANNING...')
+        print('\n' + '-'*59 + '\n')
+        for port in port_pattern:
+            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            client.settimeout(0.1)
+            code = client.connect_ex((target, port))
+            code_transfer = str(code)
+            if(code_transfer == '0'):
+                print('PORT: {} <----> '.format(port) + '\033[32m' + 'OPEN' + '\033[0;0m')
+                print('\n' + '-'*24 + '\n')
+            else:
+                print('PORT: {} <----> '.format(port) + '\033[31m' + 'CLOSE' + '\033[0;0m')
+                print('\n' + '-'*24 + '\n')
+        print('SCANNING COMPLETED')
+        print('\n' + '-'*59 + '\n')
+    except:
+        print('\033[31m' + 'SCANNING FAILED' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+
 else:
         print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
         print('\n' + '-'*59 + '\n')
