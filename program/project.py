@@ -16,7 +16,7 @@ all_ports = range(65535)
 
 #------ PRESENTATION ------#
 
-print('\n' + '-'*53 + '\n' + '--'*8 + 'Information Collector' + '--'*8 + '\n' + '-'*24 + 'V.1.1' + '-'*24 + '\n')
+print('\n' + '-'*53 + '\n' + '--'*8 + 'Information Collector' + '--'*8 + '\n' + '-'*24 + 'V.1.2' + '-'*24 + '\n')
 print(' - For more information about the application, read the attachment "README.md" ')
 print('\n' + '-'*59 + '\n')
 
@@ -80,9 +80,9 @@ elif(question == 'F' or question == 'f'):
     print('---'*4 + ' Word List ' + '---'*4 + '\n')
     subdo = str(input('(Small/Medium/Big)[S/M/B]: '))
     print('\n' + '-'*59 + '\n')
+    type_in = input('[A/AAAA/MX/NS/TXT]: ')
+    print('\n' + '-'*59 + '\n')
     if(subdo == 'S' or subdo == 's'):
-        type_in = input('[A/AAAA/MX/NS/TXT]: ')
-        print('\n' + '-'*59 + '\n')
         try:
             arq = open('../lists/small.txt')
             subs = arq.read().splitlines()
@@ -103,9 +103,25 @@ elif(question == 'F' or question == 'f'):
             except:
                 a = 1
     elif(subdo == 'M' or subdo == 'm'):
-        print('\033[33m' + 'Unfortunately this part of the program has not yet been completed, but it will come in future updates.' + '\033[0;0m')
-        time.sleep(4)
-        sys.exit(1)
+        try:
+            arq = open('../lists/medium.txt')
+            subs = arq.read().splitlines()
+            print('---'*4 + 'DNS BRUTE FORCE' + '---'*4)
+            print('\n' + '-'*59 + '\n')
+        except:
+            print('\033[31m' + 'For some reason a necessary file was not found! So the program will end!')
+            print('\n' + '-'*59 + '\n')
+            time.sleep(3)
+            sys.exit(1)
+        for sub in subs:
+            try:
+                host = ('{}.{}'.format(sub, target))
+                results = dns.resolver.resolve(host, type_in)
+                for result in results:
+                    print('\033[32m' +'TARGET: ' '\033[0;0m' + '{} <----> IP: {} <----> {}'.format(host, result, type_in))
+                    print('\n' + '-'*24 + '\n')
+            except:
+                a = 1
     elif(subdo == 'B' or subdo == 'b'):
         print('\033[33m' + 'Unfortunately this part of the program has not yet been completed, but it will come in future updates.' + '\033[0;0m')
         time.sleep(4)

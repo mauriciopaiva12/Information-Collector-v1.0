@@ -1,4 +1,4 @@
-# Information Collector v1.1
+# Information Collector v1.2
 
 <p>
  
@@ -41,7 +41,7 @@ In the list below, it will be possible to view everything that currently exists 
 
  - [x] PortScan.<br />
  - [x] DNS Brute Force 1<br />
- - [ ] DNS Brute Force 2<br />
+ - [x] DNS Brute Force 2<br />
  - [ ] DNS Brute Force 3<br />
  - [ ] Domain folder discovery 1<br />
  - [ ] Domain folder discovery 2<br />
@@ -76,9 +76,9 @@ In the full scan, it scans all the target's doors, but with a differential from 
 
 <p>
  
-There are currently two functions in the full category: DNS Brute Force and PortScan. <br /> <br />
-The DNS Brute Force contains a small word-list, it contains 338 words, that is, it contains 338 attempts at subdomains, presenting only the existing subdomains. <br />
-PortScan, on the other hand, scans the main doors, presenting both open and closed doors and differentiating them by color.
+There are currently two functions in the full category: DNS Brute Force and PortScan.<br /><br />
+The DNS Brute Force contains two word lists, one 'small', which contains 338 words and the other 'average', which contains 601 words, both presenting only the existing subdomains.<br />
+PortScan, on the other hand, scans the main doors, presenting open and closed doors and differentiating them by colors.
 
 </p>
 
@@ -88,8 +88,9 @@ PortScan, on the other hand, scans the main doors, presenting both open and clos
 
 <p>
  
- I plan to place the second third of the Brute Force DNS as soon as possible, as long as the second third is already ready, the only part that prevents the implementation is that I have not finished the proper word-list for that implementation. <br />
-Right after the implementation of the second third of the Brute Force DNS, I will start the cataloging and implementation of the 'large' word-list, which will be specific to the third and last part of the Brute Force DNS. <br />
-After the next implementation, I will start studies on how to implement the first third of subdomain discovery, as well as evaluate the main ports and see if there is a need to add a few more ports to expand detection.
+ I intend to put the last part of Brute Force DNS in the next few days, the last part of Brute Force DNS is ready, the only part that prevents the implementation is that I still don't have the proper word list for that implementation.<br />
+As I implemented the second third of the DNS Brute Force, I will already start searching and cataloging a 'big' list of words.<br />
+I intend to set up a program that automates this process and that tries to guarantee the absence of repeated words in the word list.<br /><br />
+After the next implementation, I will start studies on how to implement the first third of subdomain discovery, as well as assess the main ports and see if there is a need to add a few more ports to expand detection.
  
 </p>
