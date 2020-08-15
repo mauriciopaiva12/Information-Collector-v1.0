@@ -77,13 +77,14 @@ elif(question == 'F' or question == 'f'):
     print('\n' + '-'*59 + '\n')
     target = str(input('Target: '))
     print('\n' + '-'*59 + '\n')
+    print('---'*4 + ' Word List ' + '---'*4 + '\n')
     subdo = str(input('(Small/Medium/Big)[S/M/B]: '))
     print('\n' + '-'*59 + '\n')
     if(subdo == 'S' or subdo == 's'):
         type_in = input('[A/AAAA/MX/NS/TXT]: ')
         print('\n' + '-'*59 + '\n')
         try:
-            arq = open('lists/small.txt')
+            arq = open('../lists/small.txt')
             subs = arq.read().splitlines()
             print('---'*4 + 'DNS BRUTE FORCE' + '---'*4)
             print('\n' + '-'*59 + '\n')
