@@ -32,7 +32,6 @@ To install them, just copy and paste the following codes into the terminal, reme
 <p>
  
 In the list below, it will be possible to view everything that currently exists in the project and everything that I currently intend to implement.<br />
-In the coming days, I intend to implement the second third of the brute force DNS, containing in this next update a 'medium' size word-list.<br />
 
 </p>
 
