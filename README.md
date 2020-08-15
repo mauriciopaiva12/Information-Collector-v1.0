@@ -9,7 +9,7 @@ The project is not yet finished, as I am evolving it as I have time, so it will 
 
 ---
 
-## Required libraries and installation
+## Required libraries and installations
 
 <p>
 Some libraries are needed, such as: socket, sys, dns.resolver, time.<br />
@@ -20,7 +20,8 @@ To install them, just copy and paste the following codes into the terminal, reme
 
 ### Installation
 
-
+`pip3 install sockets`
+`pip3 install dnspython`
 
 ---
 
@@ -47,7 +48,9 @@ In the coming days, I intend to implement the second third of the brute force DN
 ## PortScan Category and Full Category
 
 <p>
+ 
 *Next, I'll talk a little bit about the categories, both the portscan category and the full category, I'll talk a little bit about how it works and about planning.*
+
 <p>
 
 ---
