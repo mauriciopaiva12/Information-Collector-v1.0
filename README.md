@@ -1,4 +1,4 @@
-# Information Collector v1.3
+# Information Collector v1.4
 
 <p>
  
@@ -14,7 +14,8 @@ The project is not yet finished, as I am evolving it as I have time, so it will 
 <p>
  
 Some libraries are needed, such as: socket, sys, dns.resolver, time, requests.<br />
-To install them, just copy and paste the following codes into the terminal, remembering that each version of the pip corresponds to a version of python.
+To install them, just copy and paste the following codes into the terminal, remembering that each version of the pip corresponds to a version of python.<br />
+Installations can be done by running the script from the 'Installation required' folder. The existing file is currently executable on Linux only.
 
 </p>
 
@@ -89,7 +90,7 @@ The directory scan scans using the large Brute Force DNS word list and shows onl
 <p>
  
  As the entire project plan has already been finalized, I intend only to update it, guaranteeing at least once a week a re-study of the project, to correct problems and updates.<br />
- In addition to adding an executable script to automate the necessary installations.
+ In addition to adding an executable script to automate the necessary installations, on other Linux distributions that are not based on Debian and for other operating systems.
  
 </p>
 
