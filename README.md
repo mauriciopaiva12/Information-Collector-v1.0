@@ -45,7 +45,7 @@ In the list below, it will be possible to view everything that currently exists 
  - [x] DNS Brute Force 2<br />
  - [x] DNS Brute Force 3<br />
  - [x] Domain folder discovery<br />
- - [ ] Can save the output<br />
+ - [x] Can save the output<br />
  
 ---
 
@@ -75,9 +75,10 @@ In the full scan, it scans all the target's doors, but with a differential from 
 
 <p>
  
-There are currently two functions in the full category: DNS Brute Force and PortScan.<br /><br />
-The DNS Brute Force has been updated and is now complete. Word-lists have also been changed, but they can be found on the link below, along with a description of them.<br />
-PortScan, on the other hand, scans the main doors, presenting open and closed doors and differentiating them by colors.
+There are currently two functions in the full category: DNS Brute Force, PortScan and Directory Scan.<br /><br />
+The Brute Force DNS has been updated and is now complete. The word lists have also been changed, but can be found at the link below, along with a description of them.<br />
+PortScan, on the other hand, scans the main doors, presenting open and closed doors and differentiating them by colors.<br />
+The directory scan scans using the large Brute Force DNS word list and shows only the directories found or all directories, depending on the user's choice.<br />
 
 </p>
 
@@ -87,8 +88,8 @@ PortScan, on the other hand, scans the main doors, presenting open and closed do
 
 <p>
  
- From now on I will start implementing a method to save the output of the data obtained.<br />
- And together I will study the directory search part more, in order to improve it in the future.
+ As the entire project plan has already been finalized, I intend only to update it, guaranteeing at least once a week a re-study of the project, to correct problems and updates.<br />
+ In addition to adding an executable script to automate the necessary installations.
  
 </p>
 
