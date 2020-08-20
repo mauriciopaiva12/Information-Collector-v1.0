@@ -1,4 +1,4 @@
-# Information Collector v1.2
+# Information Collector v1.3
 
 <p>
  
@@ -13,7 +13,7 @@ The project is not yet finished, as I am evolving it as I have time, so it will 
 
 <p>
  
-Some libraries are needed, such as: socket, sys, dns.resolver, time.<br />
+Some libraries are needed, such as: socket, sys, dns.resolver, time, requests.<br />
 To install them, just copy and paste the following codes into the terminal, remembering that each version of the pip corresponds to a version of python.
 
 </p>
@@ -24,6 +24,7 @@ To install them, just copy and paste the following codes into the terminal, reme
 
 `pip3 install sockets`
 `pip3 install dnspython`
+`pip3 install requests`
 
 ---
 
@@ -43,9 +44,7 @@ In the list below, it will be possible to view everything that currently exists 
  - [x] DNS Brute Force 1<br />
  - [x] DNS Brute Force 2<br />
  - [x] DNS Brute Force 3<br />
- - [ ] Domain folder discovery 1<br />
- - [ ] Domain folder discovery 2<br />
- - [ ] Domain folder discovery 3<br />
+ - [x] Domain folder discovery<br />
  - [ ] Can save the output<br />
  
 ---
@@ -88,7 +87,8 @@ PortScan, on the other hand, scans the main doors, presenting open and closed do
 
 <p>
  
- At the moment I will start research and studies for the implementation of the domain folder discovery part, I will also use word lists from the same repository from which I obtained the word lists from DNS Brute Force, because I think these word lists are sufficient.
+ From now on I will start implementing a method to save the output of the data obtained.<br />
+ And together I will study the directory search part more, in order to improve it in the future.
  
 </p>
 

@@ -4,6 +4,7 @@ import socket
 import sys
 import dns.resolver
 import time
+import requests
 
 #------------#
 
@@ -82,6 +83,8 @@ elif(question == 'F' or question == 'f'):
     print('\n' + '-'*59 + '\n')
     type_in = input('[A/AAAA/MX/NS/TXT]: ')
     print('\n' + '-'*59 + '\n')
+    dire = str(input('Show Directory Scan? [Y / N]: '))
+    print('\n' + '-'*59 + '\n')
     if(subdo == 'S' or subdo == 's'):
         try:
             arq = open('../lists/Filenames_or_Directories_Common.wordlist')
@@ -148,6 +151,75 @@ elif(question == 'F' or question == 'f'):
         time.sleep(4)
         sys.exit(1)
     
+    url_http = ('http://www.{}'.format(target))
+    url_https = ('https://{}'.format(target))
+
+    print('---'*4 + 'Scan Directory' + '---'*4)
+    print('\n' + '-'*59 + '\n')
+
+    if(dire == 'N' or dire == 'n'):
+        try:
+            arq = open('../lists/Filenames_or_Directories_All.wordlist')
+            lines = arq.read().splitlines()
+        except:
+            print('\033[31m' + 'For some reason a necessary file was not found! So the program will end!')
+            print('\n' + '-'*59 + '\n')
+            time.sleep(3)
+            sys.exit(1)
+        for line in lines:
+            try:
+                diretory = ('{}/{}'.format(url_https, line))
+                request = requests.get(diretory)
+                code = str(request.status_code)
+                if(code != '404'):
+                    if(code != '503'):
+                        print(diretory, code)
+                        print('\n' + '-'*24 + '\n')
+            except:
+                diretory = ('{}/{}'.format(url_http, line))
+                request = requests.get(diretory)
+                code = str(request.status_code)
+                if(code != '404'):
+                    if(code != '503'):
+                        print(diretory, code)
+                        print('\n' + '-'*24 + '\n')
+    elif(dire == 'Y' or dire == 'y'):
+        try:
+            arq = open('../lists/Filenames_or_Directories_All.wordlist')
+            lines = arq.read().splitlines()
+        except:
+            print('\033[31m' + 'For some reason a necessary file was not found! So the program will end!')
+            print('\n' + '-'*59 + '\n')
+            time.sleep(3)
+            sys.exit(1)
+        for line in lines:
+            try:
+                diretory = ('{}/{}'.format(url_https, line))
+                request = requests.get(diretory)
+                code = str(request.status_code)
+                if(code == '200'):
+                    print(diretory, '\033[32m' + code + '\033[0;0m')
+                    print('\n' + '-'*24 + '\n')
+                else:
+                    print(diretory, code)
+                    print('\n' + '-'*24 + '\n')
+            except:
+                diretory = ('{}/{}'.format(url_http, line))
+                request = requests.get(diretory)
+                code = str(request.status_code)
+                if(code == '200'):
+                    print(diretory, '\033[32m' + code + '\033[0;0m')
+                    print('\n' + '-'*24 + '\n')
+                else:
+                    print(diretory, code)
+                    print('\n' + '-'*24 + '\n')
+
+    else:
+        print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
+        print('\n' + '-'*59 + '\n')
+        time.sleep(4)
+        sys.exit(1)
+
     try:
         print('---'*4 + 'PORTSCAN' + '---'*4)
         print('\n' + '-'*59 + '\n')
@@ -171,9 +243,9 @@ elif(question == 'F' or question == 'f'):
         print('\n' + '-'*59 + '\n')
 
 else:
-        print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
-        print('\n' + '-'*59 + '\n')
-        time.sleep(4)
-        sys.exit(1)
+    print('\033[33m' + 'Command not identified. Going out!' + '\033[0;0m')
+    print('\n' + '-'*59 + '\n')
+    time.sleep(4)
+    sys.exit(1)
 
 #------------#
