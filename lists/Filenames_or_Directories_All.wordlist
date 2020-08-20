@@ -4,6 +4,7 @@ LC_MESSAGES
 js
 default.php
 index.php
+sitemap.xml
 tmpl
 lang
 default
