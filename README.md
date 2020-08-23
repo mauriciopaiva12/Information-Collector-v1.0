@@ -2,8 +2,8 @@
 
 <p>
  
-__*Project dedicated to collecting information in the first stages of a Pentest.<br />
-The project is not yet finished, as I am evolving it as I have time, so it will receive several updates yet.*__
+__*Project dedicated to collecting information in the first stages of a Pentest. <br />
+The project is already finalized, therefore it will still receive updates, but with less frequention.*__
 
 </p>
 
