@@ -17,7 +17,7 @@ all_ports = range(65535)
 
 #------ PRESENTATION ------#
 
-print('\n' + '-'*53 + '\n' + '--'*8 + 'Information Collector' + '--'*8 + '\n' + '-'*24 + 'V.1.2' + '-'*24 + '\n')
+print('\n' + '-'*53 + '\n' + '--'*8 + 'Information Collector' + '--'*8 + '\n' + '-'*24 + 'V.1.4' + '-'*24 + '\n')
 print(' - For more information about the application, read the attachment "README.md" ')
 print('\n' + '-'*59 + '\n')
 
